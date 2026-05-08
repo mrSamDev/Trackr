@@ -11,6 +11,7 @@ import {
 import { BarChart2, Plus, Search, Settings } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
+import { ProfileButton } from "#/components/ProfileButton";
 import { Button } from "#/components/ui/button";
 import { Input } from "#/components/ui/input";
 import { useTRPC } from "#/integrations/trpc/react";
@@ -287,6 +288,7 @@ function Home() {
 							Add Job
 						</Button>
 					</Link>
+					<ProfileButton />
 				</div>
 			</div>
 

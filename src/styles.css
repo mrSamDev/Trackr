@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --ink: #21204c;
+  --panel: #fff7dc;
+  --panel-2: #ffffff;
+  --yellow: #f9d84a;
+  --pink: #ff7fb4;
+  --pink-cta: #ff82b2;
+  --pink-cta-deep: #ff5d97;
+  --pink-cta-shadow: #ca3e74;
+  --pink-error: #972959;
+  --melon: #ff9f6e;
+  --mint: #92efc5;
+  --bluey: #6d8cff;
+  --ink-60: rgba(33, 32, 76, 0.6);
+  --ink-80: rgba(33, 32, 76, 0.8);
+  --ink-14: rgba(33, 32, 76, 0.14);
+  --ink-08: rgba(33, 32, 76, 0.08);
+  --ink-18: rgba(33, 32, 76, 0.18);
+
+  --background: #fff7dc;
+  --foreground: #21204c;
+  --card: #fff7dc;
+  --card-foreground: #21204c;
+  --popover: #ffffff;
+  --popover-foreground: #21204c;
+  --primary: #ff82b2;
+  --primary-foreground: #ffffff;
+  --secondary: #ffffff;
+  --secondary-foreground: #21204c;
+  --muted: #fff7dc;
+  --muted-foreground: rgba(33, 32, 76, 0.6);
+  --accent: #92efc5;
+  --accent-foreground: #21204c;
+  --destructive: #972959;
+  --destructive-foreground: #ffffff;
+  --border: #21204c;
+  --input: #ffffff;
+  --ring: #ff82b2;
+  --radius: 1.25rem;
+}
+
+@theme inline {
+  --font-display: 'Baloo 2', cursive;
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.55;
+  background:
+    radial-gradient(circle at 10% 0%, #a8d8ff 0%, transparent 45%),
+    radial-gradient(circle at 90% 100%, #92efc5 0%, transparent 50%),
+    linear-gradient(180deg, #d4f1ff 0%, #e0f8e8 100%);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-wrap {
+  width: min(1080px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.display-hero {
+  font-family: var(--font-display);
+  font-size: clamp(3.1rem, 8vw, 5.9rem);
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.display-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.display-card {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.display-section {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.label-caps {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.label-ui {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.stat-value {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.badge-text {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Panel styles */
+.panel {
+  background-color: var(--panel);
+  border-radius: 32px;
+  border: 4px solid var(--ink);
+  padding: 32px;
+  box-shadow:
+    0 18px 0 rgba(33, 32, 76, 0.18),
+    0 24px 50px rgba(33, 32, 76, 0.16);
+}
+
+@media (max-width: 640px) {
+  .panel {
+    border-radius: 24px;
+    padding: 16px;
+  }
+}
+
+/* Form inputs */
+.select-input {
+  background-color: var(--panel-2);
+  color: var(--ink);
+  border-radius: 20px;
+  border: 3px solid var(--ink);
+  padding: 15px 16px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  appearance: none;
+  box-shadow: inset 0 -4px 0 rgba(33, 32, 76, 0.08);
+  outline: none;
+  width: 100%;
+}
+
+.select-input:focus {
+  box-shadow:
+    inset 0 -4px 0 rgba(33, 32, 76, 0.08),
+    0 0 0 3px rgba(255, 130, 178, 0.3);
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Entrance animation */
+.rise-in {
+  animation: rise-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Backdrop for modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(33, 32, 76, 0.35);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}

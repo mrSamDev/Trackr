@@ -38,7 +38,9 @@ export function registerAddApplication(server: McpServer) {
 			});
 
 			return {
-				content: [{ type: "text", text: JSON.stringify(parseApplicationRow(row)) }],
+				content: [
+					{ type: "text", text: JSON.stringify(parseApplicationRow(row)) },
+				],
 			};
 		},
 	);

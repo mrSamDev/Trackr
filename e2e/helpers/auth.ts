@@ -34,9 +34,13 @@ export async function setupAuth(): Promise<void> {
   log('Navigating to login...');
   await page.goto('http://localhost:3000/login');
   await page.waitForSelector('input[id="email"]', { timeout: 10000 });
+  
+  // Wait for page to stabilize (avoid HMR issues)
+  await page.waitForTimeout(1000);
+  
   log('Filling email and password...');
-  await page.getByLabel('Email').fill(TEST_USER.email);
-  await page.getByLabel('Password').fill(TEST_USER.password);
+  await page.locator('input[id="email"]').fill(TEST_USER.email);
+  await page.locator('input[id="password"]').fill(TEST_USER.password);
 
   log('Clicking Sign in...');
   await page.getByRole('button', { name: 'Sign in' }).click();
@@ -45,13 +49,17 @@ export async function setupAuth(): Promise<void> {
     await page.waitForURL(HOME_URL, { timeout: 15000 });
     log('Login succeeded!');
   } catch {
-    log('Login failed, trying registration...');
+    log('Trying registration...');
     await page.goto('http://localhost:3000/register');
     await page.waitForSelector('input[id="name"]', { timeout: 10000 });
+    
+    // Wait for page to stabilize
+    await page.waitForTimeout(1000);
+    
     log('Filling registration form...');
-    await page.getByLabel('Name').fill(TEST_USER.name);
-    await page.getByLabel('Email').fill(TEST_USER.email);
-    await page.getByLabel('Password').fill(TEST_USER.password);
+    await page.locator('input[id="name"]').fill(TEST_USER.name);
+    await page.locator('input[id="email"]').fill(TEST_USER.email);
+    await page.locator('input[id="password"]').fill(TEST_USER.password);
 
     log('Clicking Create account...');
     await page.getByRole('button', { name: 'Create account' }).click();
@@ -69,9 +77,14 @@ export async function setupAuth(): Promise<void> {
         log('User already exists, logging in...');
         await page.goto('http://localhost:3000/login');
         await page.waitForSelector('input[id="email"]', { timeout: 10000 });
-        await page.getByLabel('Email').fill(TEST_USER.email);
-        await page.getByLabel('Password').fill(TEST_USER.password);
+        
+        // Wait for page to stabilize
+        await page.waitForTimeout(1000);
+        
+        await page.locator('input[id="email"]').fill(TEST_USER.email);
+        await page.locator('input[id="password"]').fill(TEST_USER.password);
         await page.getByRole('button', { name: 'Sign in' }).click();
+        
         await page.waitForURL(HOME_URL, { timeout: 15000 });
         log('Login succeeded after registration fallback!');
       } else {

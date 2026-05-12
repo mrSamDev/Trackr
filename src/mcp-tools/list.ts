@@ -21,7 +21,9 @@ export function registerListApplications(server: McpServer) {
 			});
 
 			return {
-				content: [{ type: "text", text: JSON.stringify(parseApplicationRows(rows)) }],
+				content: [
+					{ type: "text", text: JSON.stringify(parseApplicationRows(rows)) },
+				],
 			};
 		},
 	);

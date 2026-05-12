@@ -14,7 +14,12 @@ export function registerGetApplication(server: McpServer) {
 		async (args) => {
 			const row = appGetById(args.id);
 			return {
-				content: [{ type: "text", text: JSON.stringify(row ? parseApplicationRow(row) : null) }],
+				content: [
+					{
+						type: "text",
+						text: JSON.stringify(row ? parseApplicationRow(row) : null),
+					},
+				],
 			};
 		},
 	);

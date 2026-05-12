@@ -13,7 +13,7 @@ A full-stack job application tracker with an analytics dashboard, GitHub OAuth, 
 - **Framework** — [TanStack Start](https://tanstack.com/start) (React 19, file-based routing)
 - **API** — [tRPC](https://trpc.io/) v11
 - **Auth** — [Better Auth](https://better-auth.com/) with GitHub OAuth
-- **Database** — SQLite via [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)
+- **Database** — SQLite via [Drizzle ORM](https://orm.drizzle.team/) + [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)
 - **Styling** — [Tailwind CSS](https://tailwindcss.com/) v4 + [shadcn/ui](https://ui.shadcn.com/)
 - **Charts** — [Recharts](https://recharts.org/)
 - **Linting** — [Biome](https://biomejs.dev/)
@@ -62,6 +62,9 @@ bun run preview   # Preview production build
 | `bun run format` | Format with Biome |
 | `bun run check` | Lint + format check |
 | `bun run test` | Run tests with Vitest |
+| `bun run db:generate` | Generate Drizzle migrations |
+| `bun run db:migrate` | Apply pending migrations |
+| `bun run db:studio` | Open Drizzle Studio (database GUI) |
 
 ## Project Structure
 
@@ -84,8 +87,15 @@ src/
 │   ├── login.tsx       # Login page
 │   └── register.tsx    # Register page
 ├── server/
-│   ├── db.ts           # SQLite database client
-│   └── queries.ts      # Database queries
+│   ├── db/
+│   │   ├── index.ts        # Drizzle database client
+│   │   └── schema.ts       # Table definitions
+│   ├── queries.ts          # Database queries using Drizzle
+│   └── auth.ts             # Better Auth configuration
+drizzle/                    # Generated migration files
+├── 0000_initial.sql
+└── ...
+drizzle.config.ts           # Drizzle Kit configuration
 └── utils/              # Shared utilities
 ```
 

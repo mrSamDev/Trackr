@@ -18,7 +18,12 @@ export function registerUpdateApplicationStatus(server: McpServer) {
 			const currentRow = appGetHeardBackAt(args.id);
 			if (!currentRow) {
 				return {
-					content: [{ type: "text", text: JSON.stringify({ error: "Application not found" }) }],
+					content: [
+						{
+							type: "text",
+							text: JSON.stringify({ error: "Application not found" }),
+						},
+					],
 				};
 			}
 
@@ -33,7 +38,9 @@ export function registerUpdateApplicationStatus(server: McpServer) {
 
 			const row = appUpdateStatus(args.id, args.status, heard_back_at, now);
 			return {
-				content: [{ type: "text", text: JSON.stringify(parseApplicationRow(row)) }],
+				content: [
+					{ type: "text", text: JSON.stringify(parseApplicationRow(row)) },
+				],
 			};
 		},
 	);

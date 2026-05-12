@@ -56,7 +56,9 @@ export function ProfileButton() {
 								</p>
 							)}
 							{user.email && (
-								<p className="text-xs text-[var(--ink-60)] truncate">{user.email}</p>
+								<p className="text-xs text-[var(--ink-60)] truncate">
+									{user.email}
+								</p>
 							)}
 						</div>
 					)}

@@ -32,7 +32,11 @@ function RegisterPage() {
 				}
 			} catch (err) {
 				console.error("sign-up exception", err);
-				setServerError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+				setServerError(
+					err instanceof Error
+						? err.message
+						: "Something went wrong. Please try again.",
+				);
 			}
 		},
 	});

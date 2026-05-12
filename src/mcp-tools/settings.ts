@@ -29,7 +29,12 @@ export function registerUpdateSettings(server: McpServer) {
 			settingsUpsert("visible_fields", JSON.stringify(args.visible_fields));
 
 			return {
-				content: [{ type: "text", text: JSON.stringify({ visible_fields: args.visible_fields }) }],
+				content: [
+					{
+						type: "text",
+						text: JSON.stringify({ visible_fields: args.visible_fields }),
+					},
+				],
 			};
 		},
 	);

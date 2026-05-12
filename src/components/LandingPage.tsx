@@ -36,7 +36,9 @@ function FeatureCard({
 				{icon}
 			</div>
 			<h3 className="display-sub">{title}</h3>
-			<p className="text-[var(--ink-60)] text-sm leading-relaxed">{description}</p>
+			<p className="text-[var(--ink-60)] text-sm leading-relaxed">
+				{description}
+			</p>
 		</div>
 	);
 }
@@ -56,7 +58,9 @@ function StepCard({
 				<span className="display-card text-[var(--ink)]">{num}</span>
 			</div>
 			<h3 className="display-sub">{title}</h3>
-			<p className="text-[var(--ink-60)] text-sm max-w-[260px]">{description}</p>
+			<p className="text-[var(--ink-60)] text-sm max-w-[260px]">
+				{description}
+			</p>
 		</div>
 	);
 }
@@ -72,20 +76,23 @@ export function LandingPage() {
 						Open source &amp; free forever
 					</div>
 
-					<h1 className="display-hero max-w-[900px] rise-in"
+					<h1
+						className="display-hero max-w-[900px] rise-in"
 						style={{ animationDelay: "100ms" }}
 					>
 						Track every application.
 						<br />
-						<span className="text-[var(--pink-cta-deep)]">Land your next job.</span>
+						<span className="text-[var(--pink-cta-deep)]">
+							Land your next job.
+						</span>
 					</h1>
 
 					<p
 						className="text-lg md:text-xl text-[var(--ink-60)] max-w-[560px] font-600 rise-in"
 						style={{ animationDelay: "200ms" }}
 					>
-						A playful, powerful job application tracker with analytics,
-						AI integration, and zero clutter.
+						A playful, powerful job application tracker with analytics, AI
+						integration, and zero clutter.
 					</p>
 
 					<div
@@ -128,10 +135,30 @@ export function LandingPage() {
 
 							<div className="space-y-2">
 								{[
-									{ title: "Senior Frontend Engineer", company: "Vercel", status: "Interview", color: "var(--mint)" },
-									{ title: "Full-Stack Developer", company: "Stripe", status: "Applied", color: "var(--bluey)" },
-									{ title: "Product Designer", company: "Figma", status: "Offer", color: "var(--yellow)" },
-									{ title: "Staff Engineer", company: "GitHub", status: "Rejected", color: "var(--destructive)" },
+									{
+										title: "Senior Frontend Engineer",
+										company: "Vercel",
+										status: "Interview",
+										color: "var(--mint)",
+									},
+									{
+										title: "Full-Stack Developer",
+										company: "Stripe",
+										status: "Applied",
+										color: "var(--bluey)",
+									},
+									{
+										title: "Product Designer",
+										company: "Figma",
+										status: "Offer",
+										color: "var(--yellow)",
+									},
+									{
+										title: "Staff Engineer",
+										company: "GitHub",
+										status: "Rejected",
+										color: "var(--destructive)",
+									},
 								].map((job, i) => (
 									<div
 										key={i}
@@ -143,7 +170,9 @@ export function LandingPage() {
 											</div>
 											<div>
 												<p className="text-sm font-800">{job.title}</p>
-												<p className="text-xs text-[var(--ink-60)]">{job.company}</p>
+												<p className="text-xs text-[var(--ink-60)]">
+													{job.company}
+												</p>
 											</div>
 										</div>
 										<span
@@ -164,7 +193,9 @@ export function LandingPage() {
 			<section className="page-wrap py-20 md:py-28">
 				<div className="text-center mb-14">
 					<p className="label-caps text-[var(--ink-60)] mb-3">Features</p>
-					<h2 className="display-section">Everything you need to stay organized</h2>
+					<h2 className="display-section">
+						Everything you need to stay organized
+					</h2>
 				</div>
 
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -212,7 +243,9 @@ export function LandingPage() {
 				<div className="panel">
 					<div className="text-center mb-14">
 						<p className="label-caps text-[var(--ink-60)] mb-3">How it works</p>
-						<h2 className="display-section">Three steps to job-search clarity</h2>
+						<h2 className="display-section">
+							Three steps to job-search clarity
+						</h2>
 					</div>
 
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -244,9 +277,9 @@ export function LandingPage() {
 							Let AI manage your pipeline
 						</h2>
 						<p className="text-[var(--ink-60)] mb-6 leading-relaxed">
-							Trackr ships with a built-in Model Context Protocol server. Connect
-							Claude, Cursor, or any MCP-compatible assistant and ask it to add
-							jobs, update statuses, or generate reports — all in natural
+							Trackr ships with a built-in Model Context Protocol server.
+							Connect Claude, Cursor, or any MCP-compatible assistant and ask it
+							to add jobs, update statuses, or generate reports — all in natural
 							language.
 						</p>
 						<ul className="space-y-3">
@@ -256,7 +289,10 @@ export function LandingPage() {
 								"Mark application #42 as rejected",
 								"Show me my top application sources",
 							].map((item) => (
-								<li key={item} className="flex items-start gap-3 text-sm font-600">
+								<li
+									key={item}
+									className="flex items-start gap-3 text-sm font-600"
+								>
 									<CheckCircle2 className="size-5 text-[var(--mint)] shrink-0 mt-0.5" />
 									{item}
 								</li>
@@ -272,10 +308,22 @@ export function LandingPage() {
 								<span className="label-caps">AI Assistant</span>
 							</div>
 							{[
-								{ sender: "user", text: "I just got an offer from Vercel — update that application." },
-								{ sender: "ai", text: "Done! Updated Vercel — Senior Frontend Engineer to Offer status." },
-								{ sender: "user", text: "How many interviews do I have next week?" },
-								{ sender: "ai", text: "You have 3 upcoming interviews: Vercel, Stripe, and Linear." },
+								{
+									sender: "user",
+									text: "I just got an offer from Vercel — update that application.",
+								},
+								{
+									sender: "ai",
+									text: "Done! Updated Vercel — Senior Frontend Engineer to Offer status.",
+								},
+								{
+									sender: "user",
+									text: "How many interviews do I have next week?",
+								},
+								{
+									sender: "ai",
+									text: "You have 3 upcoming interviews: Vercel, Stripe, and Linear.",
+								},
 							].map((msg, i) => (
 								<div
 									key={i}
@@ -307,7 +355,9 @@ export function LandingPage() {
 					</div>
 					<div className="hidden md:block w-[2px] h-12 bg-[var(--ink-14)]" />
 					<div>
-						<div className="display-card text-[var(--pink-cta-deep)]">Self-hosted</div>
+						<div className="display-card text-[var(--pink-cta-deep)]">
+							Self-hosted
+						</div>
 						<p className="label-caps text-[var(--ink-60)]">Your Data</p>
 					</div>
 				</div>
@@ -345,10 +395,12 @@ export function LandingPage() {
 			<section className="page-wrap py-20 md:py-28">
 				<div className="panel text-center flex flex-col items-center gap-6">
 					<Target className="size-12 text-[var(--pink-cta-deep)]" />
-					<h2 className="display-section max-w-[500px]">Ready to land your next role?</h2>
+					<h2 className="display-section max-w-[500px]">
+						Ready to land your next role?
+					</h2>
 					<p className="text-[var(--ink-60)] max-w-[420px]">
-						Join thousands of developers who track smarter, interview better, and
-						get hired faster.
+						Join thousands of developers who track smarter, interview better,
+						and get hired faster.
 					</p>
 					<div className="flex flex-wrap justify-center gap-4">
 						<Link to="/register">

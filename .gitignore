@@ -14,3 +14,7 @@ todos.json
 mcp-todos.json
 data/tracker.db
 .gstack/
+
+docs/.docusaurus
+e2e/.auth
+test-results

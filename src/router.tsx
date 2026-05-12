@@ -6,6 +6,10 @@ import TanstackQueryProvider, {
 } from "./integrations/tanstack-query/root-provider";
 import { routeTree } from "./routeTree.gen";
 
+if (typeof window !== "undefined" && import.meta.env.DEV) {
+	import("react-grab");
+}
+
 export function getRouter() {
 	const context = getContext();
 

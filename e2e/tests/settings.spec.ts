@@ -12,14 +12,14 @@ const salaryCheckbox = (page: import('@playwright/test').Page) =>
 test('settings page loads', async ({ page }) => {
   await page.goto('/settings');
   await expect(page.getByRole('heading', { name: 'Customize Fields' })).toBeVisible();
-  await expect(page.getByText('Core Fields (always on)')).toBeVisible();
-  await expect(page.getByText('Optional Fields')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Core Fields (always on)' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Optional Fields' })).toBeVisible();
 });
 
 test('core fields are always disabled and checked', async ({ page }) => {
   await page.goto('/settings');
 
-  const coreFields = ['title', 'company', 'status', 'applied_at'];
+  const coreFields = ['title', 'company', 'status', 'applied at'];
   for (const field of coreFields) {
     const checkbox = page.locator('label').filter({ hasText: field }).locator('input[type="checkbox"]');
     await expect(checkbox).toBeChecked();

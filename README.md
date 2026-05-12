@@ -1,5 +1,9 @@
 # Trackr
 
+[![CI](https://github.com/mrsamdev/trackr/actions/workflows/ci.yml/badge.svg)](https://github.com/mrsamdev/trackr/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/Docs-online-blue)](https://mrsamdev.github.io/trackr/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 **Track every application. Land your next job.**
 
 A full-stack job application tracker with an analytics dashboard, GitHub OAuth, and an MCP server for AI assistant integration.
@@ -103,6 +107,16 @@ Add to your MCP client config:
   }
 }
 ```
+
+## Documentation
+
+Detailed documentation available at [trackr.mrsamdev.com](https://mrsamdev.github.io/trackr/):
+
+- [Getting Started](https://mrsamdev.github.io/trackr/docs/getting-started/installation)
+- [Configuration](https://mrsamdev.github.io/trackr/docs/getting-started/configuration)
+- [MCP Integration](https://mrsamdev.github.io/trackr/docs/guides/mcp-integration)
+- [Analytics Dashboard](https://mrsamdev.github.io/trackr/docs/guides/analytics-dashboard)
+- [Contributing Guide](https://mrsamdev.github.io/trackr/docs/community/contributing)
 
 ## Contributing
 

@@ -10,11 +10,10 @@ import {
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import type { TRPCRouter } from "#/integrations/trpc/router";
-import { getSession } from "#/lib/auth.functions";
 import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
 import appCss from "../styles.css?url";
 
-const AUTH_PATHS = new Set(["/login", "/register"]);
+const PUBLIC_PATHS = new Set(["/", "/login", "/register"]);
 
 interface MyRouterContext {
 	queryClient: QueryClient;
@@ -24,7 +23,8 @@ interface MyRouterContext {
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
 	beforeLoad: async ({ location }) => {
-		if (AUTH_PATHS.has(location.pathname)) return;
+		if (PUBLIC_PATHS.has(location.pathname)) return;
+		const { getSession } = await import("#/lib/auth.functions");
 		const session = await getSession();
 		if (!session) {
 			throw redirect({ to: "/login" });

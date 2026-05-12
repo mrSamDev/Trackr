@@ -1,9 +1,11 @@
 import { mkdirSync } from "node:fs";
 import Database from "better-sqlite3";
 
-let database: Database | null = null;
+type DatabaseInstance = InstanceType<typeof Database>;
 
-function bootstrapSchema(db: Database): void {
+let database: DatabaseInstance | null = null;
+
+function bootstrapSchema(db: DatabaseInstance): void {
 	db.exec(`
     CREATE TABLE IF NOT EXISTS applications (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -76,7 +78,7 @@ function bootstrapSchema(db: Database): void {
   `);
 }
 
-export function initDb(): Database {
+export function initDb(): DatabaseInstance {
 	if (!database) {
 		mkdirSync("data", { recursive: true });
 		database = new Database("data/tracker.db");
@@ -87,10 +89,10 @@ export function initDb(): Database {
 
 // Lazy singleton for backward compat with consumers that expect `export const db`
 // Initialization is deferred until first actual use.
-export const db = new Proxy({} as Database, {
+export const db = new Proxy({} as DatabaseInstance, {
 	get(_, prop) {
 		const instance = initDb();
-		const value = instance[prop as keyof Database];
+		const value = instance[prop as keyof DatabaseInstance];
 		if (typeof value === "function") {
 			return value.bind(instance);
 		}

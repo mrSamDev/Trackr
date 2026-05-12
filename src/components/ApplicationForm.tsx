@@ -135,6 +135,7 @@ export function ApplicationForm({
 							>
 								<option value="applied">Applied</option>
 								<option value="interview">Interview</option>
+								<option value="recruiter_call">Recruiter Call</option>
 								<option value="offer">Offer</option>
 								<option value="rejected">Rejected</option>
 							</select>

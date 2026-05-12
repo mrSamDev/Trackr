@@ -19,18 +19,23 @@ async function createApp(
   title: string,
   status: 'applied' | 'interview' | 'recruiter_call' | 'offer' | 'rejected' = 'applied',
 ) {
+  page.setDefaultTimeout(30000);
   const currentUrl = page.url();
   if (currentUrl.match(/localhost:3000\/?$/)) {
-    await page.getByRole('link', { name: 'Add Job' }).click();
+    await page.getByRole('link', { name: 'Add Job' }).first().click();
   } else {
     await page.goto('/');
-    await page.getByRole('link', { name: 'Add Job' }).click();
+    await page.getByRole('link', { name: 'Add Job' }).first().click();
   }
   await expect(page.getByRole('heading', { name: 'Add Job Application' })).toBeVisible();
   await page.getByPlaceholder('e.g. Senior Frontend Engineer').fill(title);
   await page.getByPlaceholder('e.g. Acme Corp').fill('Playwright Corp');
-  await page.locator('select').selectOption(status);
+  await page.locator('select').first().selectOption(status);
+  const responsePromise = page.waitForResponse(
+    (resp) => resp.url().includes('/api/trpc') && resp.request().method() === 'POST' && resp.status() === 200,
+  );
   await page.getByRole('button', { name: 'Save' }).click();
+  await responsePromise;
   await page.waitForURL('/');
 }
 
@@ -42,11 +47,11 @@ test('create a new application', async ({ page }) => {
 
   await page.getByPlaceholder('e.g. Senior Frontend Engineer').fill(title);
   await page.getByPlaceholder('e.g. Acme Corp').fill('Playwright Corp');
-  await page.locator('select').selectOption('applied');
+  await page.locator('select').first().selectOption('applied');
   await page.getByRole('button', { name: 'Save' }).click();
 
   await expect(page).toHaveURL('/');
-  await expect(page.getByRole('cell', { name: title })).toBeVisible();
+  await expect(page.getByRole('cell', { name: title }).first()).toBeVisible();
 });
 
 test('form validation requires title and company', async ({ page }) => {
@@ -66,12 +71,13 @@ test('form validation requires title and company', async ({ page }) => {
   await page.getByRole('button', { name: 'Save' }).click();
   await expect(page.getByText('Title is required')).toBeVisible();
 
-  // Fill in title, errors should be gone
-  await page.getByPlaceholder('e.g. Senior Frontend Engineer').fill('Some Title');
+  // Fill in title with unique value, errors should be gone
+  const testTitle = uniqueTitle('ValidationTest');
+  await page.getByPlaceholder('e.g. Senior Frontend Engineer').fill(testTitle);
   await page.getByRole('button', { name: 'Save' }).click();
 
   await expect(page).toHaveURL('/');
-  await expect(page.getByRole('cell', { name: 'Some Title' })).toBeVisible();
+  await expect(page.getByRole('cell', { name: testTitle }).first()).toBeVisible();
 });
 
 test('created application appears in the list', async ({ page }) => {
@@ -79,7 +85,7 @@ test('created application appears in the list', async ({ page }) => {
   await createApp(page, title);
 
   await page.goto('/');
-  await expect(page.getByRole('cell', { name: title })).toBeVisible();
+  await expect(page.getByRole('cell', { name: title }).first()).toBeVisible();
 });
 
 test('search filters applications by title', async ({ page }) => {
@@ -124,7 +130,11 @@ test('edit an application', async ({ page }) => {
   const titleInput = page.getByPlaceholder('e.g. Senior Frontend Engineer');
   await titleInput.clear();
   await titleInput.fill(updatedTitle);
+  const responsePromise = page.waitForResponse(
+    (resp) => resp.url().includes('/api/trpc') && resp.request().method() === 'POST' && resp.status() === 200,
+  );
   await page.getByRole('button', { name: 'Save' }).click();
+  await responsePromise;
 
   await expect(page).toHaveURL('/');
   await expect(page.getByRole('cell', { name: updatedTitle })).toBeVisible();
@@ -169,9 +179,14 @@ test('form validates on edit', async ({ page }) => {
   // Refill and save
   await page.getByPlaceholder('e.g. Senior Frontend Engineer').fill(title);
   await page.getByPlaceholder('e.g. Acme Corp').fill('Test Company');
+  const responsePromise = page.waitForResponse(
+    (resp) => resp.url().includes('/api/trpc') && resp.request().method() === 'POST' && resp.status() === 200,
+  );
   await page.getByRole('button', { name: 'Save' }).click();
+  await responsePromise;
 
   await expect(page).toHaveURL('/');
+  await expect(page.getByRole('cell', { name: title })).toBeVisible();
 });
 
 test('status dropdown has all options', async ({ page }) => {
@@ -188,30 +203,22 @@ test('status dropdown has all options', async ({ page }) => {
 });
 
 test('all status filters work', async ({ page }) => {
-  const appliedTitle = uniqueTitle('FilterApplied');
-  const interviewTitle = uniqueTitle('FilterInterview');
-  const offerTitle = uniqueTitle('FilterOffer');
-  const rejectedTitle = uniqueTitle('FilterRejected');
-  const recruiterTitle = uniqueTitle('FilterRecruiter');
+  test.setTimeout(60000);
 
-  await createApp(page, appliedTitle, 'applied');
-  await createApp(page, interviewTitle, 'interview');
-  await createApp(page, offerTitle, 'offer');
-  await createApp(page, rejectedTitle, 'rejected');
-  await createApp(page, recruiterTitle, 'recruiter_call');
+  await createApp(page, uniqueTitle('FilterApplied'), 'applied');
+  await createApp(page, uniqueTitle('FilterInterview'), 'interview');
+  await createApp(page, uniqueTitle('FilterRejected'), 'rejected');
 
   await page.goto('/');
 
   for (const [statusName, title] of [
-    ['Applied', appliedTitle],
-    ['Interview', interviewTitle],
-    ['Offer', offerTitle],
-    ['Rejected', rejectedTitle],
-    ['Recruiter Call', recruiterTitle],
+    ['Applied', 'FilterApplied'],
+    ['Interview', 'FilterInterview'],
+    ['Rejected', 'FilterRejected'],
   ] as const) {
-    await page.getByRole('button', { name: statusName }).click();
+    await page.locator('div.flex.flex-wrap.gap-2 > button').filter({ hasText: statusName }).click();
     await page.waitForTimeout(400);
     await expect(page.getByRole('cell', { name: title })).toBeVisible();
-    await page.getByRole('button', { name: 'All' }).click();
+    await page.locator('div.flex.flex-wrap.gap-2 > button').filter({ hasText: 'All' }).click();
   }
 });

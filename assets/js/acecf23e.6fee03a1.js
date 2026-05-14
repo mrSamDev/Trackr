@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktrackr_docs=globalThis.webpackChunktrackr_docs||[]).push([[903],{1912(a){a.exports=JSON.parse('{"blogBasePath":"/trackr/blog","blogTitle":"Blog","authorsListPath":"/trackr/blog/authors"}')}}]);

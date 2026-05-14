@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktrackr_docs=globalThis.webpackChunktrackr_docs||[]).push([[377],{924(a){a.exports=JSON.parse('{"tags":[{"label":"release","permalink":"/trackr/blog/tags/release","count":1},{"label":"oauth","permalink":"/trackr/blog/tags/oauth","count":1},{"label":"mcp","permalink":"/trackr/blog/tags/mcp","count":1}]}')}}]);

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mrsamdev.github.io/trackr/blog</id>
+    <title>Trackr Blog</title>
+    <updated>2025-05-14T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://mrsamdev.github.io/trackr/blog"/>
+    <subtitle>Trackr Blog</subtitle>
+    <icon>https://mrsamdev.github.io/trackr/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Trackr v1.2: OAuth 2.1 & Enhanced MCP Integration]]></title>
+        <id>https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch</id>
+        <link href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch"/>
+        <updated>2025-05-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Author: Sam O.]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p><strong>Author</strong>: Sam O.</p>
+</blockquote>
+<p>We're excited to announce Trackr v1.2.0, featuring OAuth 2.1 support for secure AI assistant integration and an enhanced analytics dashboard.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-new">What's New<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#whats-new" class="hash-link" aria-label="Direct link to What's New" title="Direct link to What's New" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-oauth-21-for-mcp">🔐 OAuth 2.1 for MCP<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#-oauth-21-for-mcp" class="hash-link" aria-label="Direct link to 🔐 OAuth 2.1 for MCP" title="Direct link to 🔐 OAuth 2.1 for MCP" translate="no">​</a></h3>
+<p>The biggest addition in v1.2 is OAuth 2.1 support for MCP (Model Context Protocol) clients. This means:</p>
+<ul>
+<li class=""><strong>Secure authentication</strong> for AI assistants like Claude and Cursor</li>
+<li class=""><strong>Token-based access</strong> with automatic refresh</li>
+<li class=""><strong>Scoped permissions</strong> for fine-grained control</li>
+<li class=""><strong>Industry-standard</strong> OAuth 2.1 compliance</li>
+</ul>
+<p>Connect your AI assistant securely:</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">"mcpServers"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token property">"trackr"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">"command"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"bun"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">"args"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">[</span><span class="token string" style="color:rgb(255, 121, 198)">"run"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"src/mcp-applications.ts"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">]</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token property">"auth"</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"oauth"</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="-enhanced-analytics-dashboard">📊 Enhanced Analytics Dashboard<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#-enhanced-analytics-dashboard" class="hash-link" aria-label="Direct link to 📊 Enhanced Analytics Dashboard" title="Direct link to 📊 Enhanced Analytics Dashboard" translate="no">​</a></h3>
+<p>The analytics dashboard now features:</p>
+<ul>
+<li class=""><strong>Interactive charts</strong> with hover details</li>
+<li class=""><strong>Time range filtering</strong> (7/30/90 days, custom)</li>
+<li class=""><strong>Export capabilities</strong> (PNG, SVG, CSV)</li>
+<li class=""><strong>Mobile-responsive</strong> design</li>
+<li class=""><strong>Keyboard shortcuts</strong> for power users</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="️-keyboard-shortcuts">⌨️ Keyboard Shortcuts<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#%EF%B8%8F-keyboard-shortcuts" class="hash-link" aria-label="Direct link to ⌨️ Keyboard Shortcuts" title="Direct link to ⌨️ Keyboard Shortcuts" translate="no">​</a></h3>
+<p>Navigate Trackr faster with new keyboard shortcuts:</p>
+<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td><code>n</code></td><td>New application</td></tr><tr><td><code>/</code></td><td>Search</td></tr><tr><td><code>t</code></td><td>Change time range (analytics)</td></tr><tr><td><code>e</code></td><td>Export data</td></tr><tr><td><code>?</code></td><td>Show all shortcuts</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="migration-guide">Migration Guide<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#migration-guide" class="hash-link" aria-label="Direct link to Migration Guide" title="Direct link to Migration Guide" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-existing-users">For Existing Users<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#for-existing-users" class="hash-link" aria-label="Direct link to For Existing Users" title="Direct link to For Existing Users" translate="no">​</a></h3>
+<p>If you're upgrading from v1.1:</p>
+<ol>
+<li class="">
+<p><strong>Backup your database:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token function" style="color:rgb(80, 250, 123)">cp</span><span class="token plain"> trackr.db trackr.db.backup</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Install dependencies:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">bun </span><span class="token function" style="color:rgb(80, 250, 123)">install</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Run migrations:</strong></p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">bun run db:migrate</span><br></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Update OAuth settings</strong> (if using MCP):</p>
+<ul>
+<li class="">Regenerate GitHub OAuth credentials</li>
+<li class="">Update <code>.env</code> with new secrets</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-new-users">For New Users<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#for-new-users" class="hash-link" aria-label="Direct link to For New Users" title="Direct link to For New Users" translate="no">​</a></h3>
+<p>Get started in minutes:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token function" style="color:rgb(80, 250, 123)">git</span><span class="token plain"> clone https://github.com/mrsamdev/trackr.git</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token builtin class-name" style="color:rgb(189, 147, 249)">cd</span><span class="token plain"> trackr</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">bun </span><span class="token function" style="color:rgb(80, 250, 123)">install</span><span class="token plain"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">bun run dev</span><br></div></code></pre></div></div>
+<p>Visit <a class="" href="https://mrsamdev.github.io/trackr/docs/getting-started/installation">Getting Started</a> for detailed setup instructions.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="mcp-integration-examples">MCP Integration Examples<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#mcp-integration-examples" class="hash-link" aria-label="Direct link to MCP Integration Examples" title="Direct link to MCP Integration Examples" translate="no">​</a></h2>
+<p>With OAuth 2.1, you can now ask your AI assistant:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">"List all my job applications in interview status"</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">"Add a new application for Senior Engineer at Acme Corp"</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">"Update the Google application to offer stage"</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">"Show me applications I haven't heard back from in 2 weeks"</span><br></div></code></pre></div></div>
+<p>See the <a class="" href="https://mrsamdev.github.io/trackr/docs/guides/mcp-integration">MCP Integration Guide</a> for setup details.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-improvements">Performance Improvements<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#performance-improvements" class="hash-link" aria-label="Direct link to Performance Improvements" title="Direct link to Performance Improvements" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>30% faster</strong> analytics queries with new indexes</li>
+<li class=""><strong>50% smaller</strong> bundle size after tree-shaking</li>
+<li class=""><strong>Improved caching</strong> for frequently accessed data</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h2>
+<ul>
+<li class="">Fixed OAuth callback URL mismatch</li>
+<li class="">Resolved analytics chart rendering on mobile</li>
+<li class="">Corrected database migration order</li>
+<li class="">Fixed session expiration handling</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What's Next<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#whats-next" class="hash-link" aria-label="Direct link to What's Next" title="Direct link to What's Next" translate="no">​</a></h2>
+<p>Coming in v1.3:</p>
+<ul>
+<li class="">📧 Email notifications for status changes</li>
+<li class="">🔔 Browser push notifications</li>
+<li class="">📱 Progressive Web App (PWA) support</li>
+<li class="">🌐 Internationalization (i18n)</li>
+<li class="">🎯 Smart suggestions for application updates</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback">Feedback<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#feedback" class="hash-link" aria-label="Direct link to Feedback" title="Direct link to Feedback" translate="no">​</a></h2>
+<p>We'd love to hear your feedback!</p>
+<ul>
+<li class="">🐛 <a href="https://github.com/mrsamdev/trackr/issues" target="_blank" rel="noopener noreferrer" class="">Report a bug</a></li>
+<li class="">💡 <a href="https://github.com/mrsamdev/trackr/issues" target="_blank" rel="noopener noreferrer" class="">Request a feature</a></li>
+<li class="">💬 <a href="https://github.com/mrsamdev/trackr/discussions" target="_blank" rel="noopener noreferrer" class="">Join the discussion</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="credits">Credits<a href="https://mrsamdev.github.io/trackr/blog/trackr-v1.2-launch#credits" class="hash-link" aria-label="Direct link to Credits" title="Direct link to Credits" translate="no">​</a></h2>
+<p>Thanks to all contributors who made this release possible!</p>
+<hr>
+<p><strong>Full changelog:</strong> <a class="" href="https://mrsamdev.github.io/trackr/docs/community/changelog">CHANGELOG.md</a></p>
+<p><strong>Documentation:</strong> <a href="https://mrsamdev.github.io/trackr/" target="_blank" rel="noopener noreferrer" class="">trackr.mrsamdev.github.io</a></p>]]></content>
+        <author>
+            <name>Sam O.</name>
+            <uri>https://github.com/mrsamdev</uri>
+        </author>
+        <category label="release" term="release"/>
+        <category label="oauth" term="oauth"/>
+        <category label="mcp" term="mcp"/>
+    </entry>
+</feed>

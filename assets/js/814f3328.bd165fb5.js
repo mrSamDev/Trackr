@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktrackr_docs=globalThis.webpackChunktrackr_docs||[]).push([[472],{5513(t){t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Trackr v1.2: OAuth 2.1 & Enhanced MCP Integration","permalink":"/trackr/blog/trackr-v1.2-launch","unlisted":false,"date":"2025-05-14T00:00:00.000Z"}]}')}}]);

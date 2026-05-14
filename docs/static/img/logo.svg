@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#fff7dc" stroke="#21204c" stroke-width="6"/>
+  
+  <!-- Trackr "T" icon -->
+  <path d="M60 60 L140 60 L140 85 L112.5 85 L112.5 140 L87.5 140 L87.5 85 L60 85 Z" fill="#6d8cff" stroke="#21204c" stroke-width="4"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="50" r="8" fill="#ff7fb4" stroke="#21204c" stroke-width="3"/>
+  <circle cx="50" cy="150" r="6" fill="#92efc5" stroke="#21204c" stroke-width="3"/>
+  <circle cx="160" cy="140" r="5" fill="#f9d84a" stroke="#21204c" stroke-width="3"/>
+  
+  <!-- Checkmark indicating tracking/completion -->
+  <path d="M120 110 L130 120 L145 95" stroke="#21204c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
